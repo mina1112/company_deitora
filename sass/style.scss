@@ -1,0 +1,148 @@
+$color-main:#3F51B5;
+$color-accent:#E81919;
+$color-text: #333333;
+$layout-width-inner:1200px;
+$breakpoints: ( //キー : 値
+'sp': "(max-width: 767px)", 'tab': "(min-width: 768px) and (max-width: #{$layout-width-inner - 1px})", 'pc': "(min-width: #{$layout-width-inner})") !default;
+@mixin mq($breakpoints: sp) {
+    @media #{mapget (
+ $breakpoints,
+    $breakpoint)
+}
+
+{
+    @content;
+}
+
+
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* 游ゴシックの指定方法 */
+body {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #fff;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.inner {
+    width: $layout-width-inner;
+    max-width: 100%;
+    margin: auto;
+}
+// header
+.header {
+    background-color: $color-main;
+    height: 100px;
+}
+.header__inner {
+    height: inherit; //なにこれ
+    display: flex;
+    align-items: center;
+}
+.header__logo {
+    width: 285px;
+    img {
+        display: block;
+    }
+}
+.header__nav {
+    display: flex;
+    align-items: center; //これ何
+    margin-left: auto;
+    li {
+        &:not(:first-child) {
+            //これも何
+            margin-left: 48px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            position: relative; //なに
+            &.is-active {
+                &::after {
+                    content: ""; //なに
+                    position: absolute; //なに
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: $color-accent;
+                }
+            }
+        }
+    }
+}
+// main-visual
+.main-visual {
+    background-image: url(../img/mainvisual.png);
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    position: relative;
+}
+.main-visual__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); //なにこれ
+    text-align: center;
+}
+.main-visual__title {
+    font-size: 64px;
+    font-weight: 700;
+}
+.main-visual__lead {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 24px;
+}
+.main-visual__button {
+    margin-top: 40px;
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center; //上から3つで中央ぞろえ
+        width: 384px;
+        height: 72px;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        color: #fff;
+        background-color: $color-main;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px rgba($color: #00000029, $alpha: 0.16);
+    }
+}
+// align justify positionについて調べる
