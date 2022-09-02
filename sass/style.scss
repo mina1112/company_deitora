@@ -73,6 +73,24 @@ a {
     margin: auto;
 }
 
+.section__title {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 28px;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); //左右
+        bottom: 0;
+        width: 50px;
+        height: 4px;
+        background-color: $color-main;
+    }
+}
+
 // header
 .header {
     background-color: $color-main;
@@ -177,24 +195,6 @@ a {
 
 .card__inner {}
 
-.card__head {
-    font-size: 48px;
-    font-weight: 700;
-    text-align: center;
-    padding-bottom: 28px;
-    position: relative;
-    &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%); //左右
-        bottom: 0;
-        width: 50px;
-        height: 4px;
-        background-color: $color-main;
-    }
-}
-
 .card__items {
     display: flex;
     flex-wrap: wrap;
@@ -247,4 +247,93 @@ a {
     color: #6f7579;
     line-height: (24/16);
     margin-top: 14px;
+}
+
+
+/* news */
+
+.news {
+    padding: 100px 0 120px;
+    background: #fff;
+}
+
+.news__items {
+    margin: 80px auto 0;
+    width: 800px;
+    max-width: 100%;
+}
+
+.news__item {
+    display: flex;
+    padding: 20px 0 12px;
+    &:not(:first-child) {
+        //:がないと指定されない
+        border-top: 1px solid #6f7579;
+    }
+    // @include mq ('sp') {
+    //     display: block;
+    // }
+}
+
+.news__meta {
+    display: flex;
+    // width: 185px;
+}
+
+.news__date {
+    width: 105px;
+    padding-top: 3px; //なぜ
+}
+
+.news__label {
+    a {
+        display: inline-block;
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+        color: #fff;
+        text-align: center;
+        background: #666;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+        &.is-blue {
+            background: #3F51B5;
+        }
+        &.is-red {
+            background: #E81919;
+        }
+    }
+}
+
+.news__title {
+    width: calc(100% - 185px);
+    padding-left: 20px;
+    padding-top: 3px;
+    a {
+        text-decoration: none;
+        line-height: (20/16);
+    }
+}
+
+.news__more {
+    margin-top: 60px;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: #E81919;
+        font-weight: 700;
+        padding-right: 14px;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0; //ここの書き方要復習
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 12px;
+            background: url(../img/news-arrow.png) no-repeat center center / contain;
+        }
+    }
 }

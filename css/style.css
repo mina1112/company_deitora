@@ -51,6 +51,24 @@ a {
   margin: auto;
 }
 
+.section__title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 28px;
+  position: relative;
+}
+.section__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 50px;
+  height: 4px;
+  background-color: #3F51B5;
+}
+
 .header {
   background-color: #3F51B5;
   height: 100px;
@@ -142,24 +160,6 @@ a {
   padding: 100px 0 120px;
 }
 
-.card__head {
-  font-size: 48px;
-  font-weight: 700;
-  text-align: center;
-  padding-bottom: 28px;
-  position: relative;
-}
-.card__head::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  width: 50px;
-  height: 4px;
-  background-color: #3F51B5;
-}
-
 .card__items {
   display: flex;
   flex-wrap: wrap;
@@ -209,4 +209,84 @@ a {
   color: #6f7579;
   line-height: 1.5;
   margin-top: 14px;
+}
+
+/* news */
+.news {
+  padding: 100px 0 120px;
+  background: #fff;
+}
+
+.news__items {
+  margin: 80px auto 0;
+  width: 800px;
+  max-width: 100%;
+}
+
+.news__item {
+  display: flex;
+  padding: 20px 0 12px;
+}
+.news__item:not(:first-child) {
+  border-top: 1px solid #6f7579;
+}
+
+.news__meta {
+  display: flex;
+}
+
+.news__date {
+  width: 105px;
+  padding-top: 3px;
+}
+
+.news__label a {
+  display: inline-block;
+  width: 80px;
+  height: 32px;
+  line-height: 32px;
+  color: #fff;
+  text-align: center;
+  background: #666;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.news__label a.is-blue {
+  background: #3F51B5;
+}
+.news__label a.is-red {
+  background: #E81919;
+}
+
+.news__title {
+  width: calc(100% - 185px);
+  padding-left: 20px;
+  padding-top: 3px;
+}
+.news__title a {
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.news__more {
+  margin-top: 60px;
+  text-align: center;
+}
+.news__more a {
+  text-decoration: none;
+  color: #E81919;
+  font-weight: 700;
+  padding-right: 14px;
+  position: relative;
+}
+.news__more a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 12px;
+  background: url(../img/news-arrow.png) no-repeat center center/contain;
 }
